@@ -14,11 +14,11 @@ const server = http.createServer((req, res) => {
 
       // Write code here to calculate power of a number
 
-      if (!value1 || !value2) {
-        res.writeHead(400, { "Content-Type": "text/html" });
-        res.end("The operation cannot be performed");
-      } else if (value1 <= 0) {
+      if (value1 <= 0) {
         res.writeHead(404, { "Content-Type": "text/html" });
+        res.end("The operation cannot be performed");
+      } else if (!value1 || !value2) {
+        res.writeHead(400, { "Content-Type": "text/html" });
         res.end("The operation cannot be performed");
       } else {
         const answer = Math.pow(value1, value2);
